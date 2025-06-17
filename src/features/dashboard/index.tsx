@@ -13,6 +13,7 @@ import { TopNav } from '@/components/layout/top-nav'
 import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
+import { ActiveDataSources } from './components/active-data-sources'
 import { Overview } from './components/overview'
 import { RecentSales } from './components/recent-sales'
 
@@ -163,7 +164,7 @@ export default function Dashboard() {
             <div className='grid grid-cols-1 gap-4 lg:grid-cols-7'>
               <Card className='col-span-1 lg:col-span-4'>
                 <CardHeader>
-                  <CardTitle>Overview</CardTitle>
+                  <CardTitle>Requests Over Time</CardTitle>
                 </CardHeader>
                 <CardContent className='pl-2'>
                   <Overview />
@@ -171,13 +172,20 @@ export default function Dashboard() {
               </Card>
               <Card className='col-span-1 lg:col-span-3'>
                 <CardHeader>
-                  <CardTitle>Recent Sales</CardTitle>
-                  <CardDescription>
-                    You made 265 sales this month.
-                  </CardDescription>
+                  <CardTitle>Most Active Clones</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <RecentSales />
+                </CardContent>
+              </Card>
+            </div>
+            <div className='grid grid-cols-1 gap-4 lg:grid-cols-2'>
+              <Card className='col-span-1'>
+                <CardHeader>
+                  <CardTitle>Most Active Data Sources</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ActiveDataSources />
                 </CardContent>
               </Card>
             </div>

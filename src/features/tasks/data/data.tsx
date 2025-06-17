@@ -5,54 +5,77 @@ import {
   IconCircle,
   IconCircleCheck,
   IconCircleX,
-  IconExclamationCircle,
-  IconStopwatch,
+  IconBrain,
+  IconMessageCircle,
+  IconCode,
+  IconFileText,
+  IconSearch,
+  IconAnalyze,
 } from '@tabler/icons-react'
 
-export const labels = [
+export const activityTypes = [
   {
-    value: 'bug',
-    label: 'Bug',
+    value: 'analysis',
+    label: 'Analysis',
+    icon: IconAnalyze,
   },
   {
-    value: 'feature',
-    label: 'Feature',
+    value: 'coding',
+    label: 'Coding',
+    icon: IconCode,
   },
   {
-    value: 'documentation',
-    label: 'Documentation',
+    value: 'research',
+    label: 'Research',
+    icon: IconSearch,
+  },
+  {
+    value: 'writing',
+    label: 'Writing',
+    icon: IconFileText,
+  },
+  {
+    value: 'conversation',
+    label: 'Conversation',
+    icon: IconMessageCircle,
+  },
+  {
+    value: 'thinking',
+    label: 'Deep Thinking',
+    icon: IconBrain,
   },
 ]
 
+// Keep labels for backward compatibility
+export const labels = activityTypes.map(({ value, label }) => ({
+  value,
+  label,
+}))
+
 export const statuses = [
   {
-    value: 'backlog',
-    label: 'Backlog',
-    icon: IconExclamationCircle,
-  },
-  {
-    value: 'todo',
-    label: 'Todo',
+    value: 'queued',
+    label: 'Queued',
     icon: IconCircle,
   },
   {
-    value: 'in progress',
-    label: 'In Progress',
-    icon: IconStopwatch,
+    value: 'processing',
+    label: 'Processing',
+    icon: IconCircle,
   },
   {
-    value: 'done',
-    label: 'Done',
+    value: 'completed',
+    label: 'Completed',
     icon: IconCircleCheck,
   },
   {
-    value: 'canceled',
-    label: 'Canceled',
+    value: 'failed',
+    label: 'Failed',
     icon: IconCircleX,
   },
 ]
 
-export const priorities = [
+export const urgencyLevels = [
   {
     label: 'Low',
     value: 'low',
@@ -69,3 +92,6 @@ export const priorities = [
     icon: IconArrowUp,
   },
 ]
+
+// Keep priorities for backward compatibility
+export const priorities = urgencyLevels

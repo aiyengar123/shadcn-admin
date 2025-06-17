@@ -1,13 +1,17 @@
 import { z } from 'zod'
 
-// We're keeping a simple non-relational schema here.
-// IRL, you will have a schema for your data models.
-export const taskSchema = z.object({
+// Schema for digital clone activity
+export const cloneActivitySchema = z.object({
   id: z.string(),
-  title: z.string(),
+  cloneName: z.string(),
+  userQuery: z.string(),
   status: z.string(),
-  label: z.string(),
-  priority: z.string(),
+  activityType: z.string(),
+  urgency: z.string(),
 })
 
-export type Task = z.infer<typeof taskSchema>
+export type CloneActivity = z.infer<typeof cloneActivitySchema>
+
+// Keep legacy Task type for backward compatibility during transition
+export const taskSchema = cloneActivitySchema
+export type Task = CloneActivity
