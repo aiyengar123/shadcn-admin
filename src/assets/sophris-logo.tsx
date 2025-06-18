@@ -3,13 +3,8 @@ import { cn } from '@/lib/utils'
 export function SophrisLogo({
   className,
   ...props
-}: React.ImgHTMLAttributes<HTMLImageElement>) {
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <img
-      src='/logos/sophris-logo.png'
-      alt='Mirror'
-      className={cn('bg-black object-contain', className)}
-      {...props}
-    />
+    <div className={cn('h-8 w-8 rounded bg-blue-600', className)} {...props} />
   )
 }

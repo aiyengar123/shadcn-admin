@@ -358,7 +358,7 @@ export default function Dashboard() {
                           </div>
                         </div>
                         <div className='flex items-start space-x-3'>
-                          <div className='mt-2 h-2 w-2 rounded-full bg-purple-500'></div>
+                          <div className='mt-2 h-2 w-2 rounded-full bg-blue-500'></div>
                           <div className='flex-1'>
                             <div className='text-sm font-medium'>
                               Aditya Iyengar
