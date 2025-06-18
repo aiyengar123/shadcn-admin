@@ -1,30 +1,67 @@
-import { faker } from '@faker-js/faker'
-
-export const users = Array.from({ length: 20 }, () => {
-  const firstName = faker.person.firstName()
-  const lastName = faker.person.lastName()
-  return {
-    id: faker.string.uuid(),
-    firstName,
-    lastName,
-    username: faker.internet
-      .username({ firstName, lastName })
-      .toLocaleLowerCase(),
-    email: faker.internet.email({ firstName }).toLocaleLowerCase(),
-    phoneNumber: faker.phone.number({ style: 'international' }),
-    status: faker.helpers.arrayElement([
-      'active',
-      'inactive',
-      'invited',
-      'suspended',
-    ]),
-    role: faker.helpers.arrayElement([
-      'superadmin',
-      'admin',
-      'cashier',
-      'manager',
-    ]),
-    createdAt: faker.date.past(),
-    updatedAt: faker.date.recent(),
-  }
-})
+export const users = [
+  {
+    id: '1',
+    firstName: 'Adarsh',
+    lastName: 'Ambati',
+    username: 'adarsh.ambati',
+    email: 'adarsh.ambati@sophris.ai',
+    status: 'active' as const,
+    role: 'founding-ceo' as const,
+    team: 'Founding Team',
+    position: 'CEO',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-12-01'),
+  },
+  {
+    id: '2',
+    firstName: 'Ansh',
+    lastName: 'Gupta',
+    username: 'ansh.gupta',
+    email: 'ansh.gupta@sophris.ai',
+    status: 'active' as const,
+    role: 'founding-cto' as const,
+    team: 'Founding Team',
+    position: 'CTO',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-12-01'),
+  },
+  {
+    id: '3',
+    firstName: 'Aditya',
+    lastName: 'Iyengar',
+    username: 'aditya.iyengar',
+    email: 'aditya.iyengar@sophris.ai',
+    status: 'active' as const,
+    role: 'founding-cpo' as const,
+    team: 'Founding Team',
+    position: 'CPO',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-12-01'),
+  },
+  {
+    id: '4',
+    firstName: 'Luke',
+    lastName: 'Ponssen',
+    username: 'luke.ponssen',
+    email: 'luke.ponssen@sophris.ai',
+    status: 'active' as const,
+    role: 'intern' as const,
+    team: 'Intern Team',
+    position: 'Intern',
+    createdAt: new Date('2024-06-01'),
+    updatedAt: new Date('2024-12-01'),
+  },
+  {
+    id: '5',
+    firstName: 'Naman',
+    lastName: 'Gupta',
+    username: 'naman.gupta',
+    email: 'naman.gupta@sophris.ai',
+    status: 'active' as const,
+    role: 'subcontractor' as const,
+    team: 'Subcontractor Team',
+    position: 'Contractor',
+    createdAt: new Date('2024-09-01'),
+    updatedAt: new Date('2024-12-01'),
+  },
+]

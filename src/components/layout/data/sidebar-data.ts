@@ -21,19 +21,21 @@ import {
 } from '@tabler/icons-react'
 import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react'
 import { ClerkLogo } from '@/assets/clerk-logo'
+import { SophrisLogo } from '@/assets/sophris-logo'
 import { type SidebarData } from '../types'
 
 export const sidebarData: SidebarData = {
   user: {
-    name: 'satnaing',
-    email: 'satnaingdev@gmail.com',
-    avatar: '/avatars/shadcn.jpg',
+    name: 'adi_iyengar',
+    email: 'aditya@sophris.ai',
+    // avatar: '/avatars/shadcn.jpg',
+    avatar: "",
   },
   teams: [
     {
-      name: 'Shadcn Admin',
-      logo: Command,
-      plan: 'Vite + ShadcnUI',
+      name: 'Mirror',
+      logo: SophrisLogo,
+      plan: 'Admin',
     },
     {
       name: 'Acme Inc',
@@ -56,17 +58,17 @@ export const sidebarData: SidebarData = {
           icon: IconLayoutDashboard,
         },
         {
-          title: 'Tasks',
+          title: 'Recent Activity',
           url: '/tasks',
           icon: IconChecklist,
         },
         {
-          title: 'Apps',
+          title: 'Manage Data Sources',
           url: '/apps',
           icon: IconPackages,
         },
         {
-          title: 'Users',
+          title: 'Manage Clones',
           url: '/users',
           icon: IconUsers,
         },

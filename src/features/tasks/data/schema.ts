@@ -5,9 +5,7 @@ export const cloneActivitySchema = z.object({
   id: z.string(),
   cloneName: z.string(),
   userQuery: z.string(),
-  status: z.string(),
   activityType: z.string(),
-  urgency: z.string(),
 })
 
 export type CloneActivity = z.infer<typeof cloneActivitySchema>

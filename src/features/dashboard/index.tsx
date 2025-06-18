@@ -14,6 +14,7 @@ import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { ActiveDataSources } from './components/active-data-sources'
+import { MostRequestedTeams } from './components/most-requested-teams'
 import { Overview } from './components/overview'
 import { RecentSales } from './components/recent-sales'
 
@@ -62,101 +63,52 @@ export default function Dashboard() {
               <Card>
                 <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
                   <CardTitle className='text-sm font-medium'>
-                    Total Revenue
+                    Total Clones
                   </CardTitle>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    className='text-muted-foreground h-4 w-4'
-                  >
-                    <path d='M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6' />
-                  </svg>
                 </CardHeader>
                 <CardContent>
-                  <div className='text-2xl font-bold'>$45,231.89</div>
+                  <div className='text-2xl font-bold'>5</div>
                   <p className='text-muted-foreground text-xs'>
-                    +20.1% from last month
+                    +20% from last month
                   </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
                   <CardTitle className='text-sm font-medium'>
-                    Subscriptions
+                    Critical Error Tickets
                   </CardTitle>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    className='text-muted-foreground h-4 w-4'
-                  >
-                    <path d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2' />
-                    <circle cx='9' cy='7' r='4' />
-                    <path d='M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' />
-                  </svg>
                 </CardHeader>
                 <CardContent>
-                  <div className='text-2xl font-bold'>+2350</div>
+                  <div className='text-2xl font-bold'>2</div>
                   <p className='text-muted-foreground text-xs'>
-                    +180.1% from last month
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-                  <CardTitle className='text-sm font-medium'>Sales</CardTitle>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    className='text-muted-foreground h-4 w-4'
-                  >
-                    <rect width='20' height='14' x='2' y='5' rx='2' />
-                    <path d='M2 10h20' />
-                  </svg>
-                </CardHeader>
-                <CardContent>
-                  <div className='text-2xl font-bold'>+12,234</div>
-                  <p className='text-muted-foreground text-xs'>
-                    +19% from last month
+                    -50% from last month
                   </p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
                   <CardTitle className='text-sm font-medium'>
-                    Active Now
+                    Overall Utilization Rate
                   </CardTitle>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    className='text-muted-foreground h-4 w-4'
-                  >
-                    <path d='M22 12h-4l-3 9L9 3l-3 9H2' />
-                  </svg>
                 </CardHeader>
                 <CardContent>
-                  <div className='text-2xl font-bold'>+573</div>
+                  <div className='text-2xl font-bold'>80%</div>
                   <p className='text-muted-foreground text-xs'>
-                    +201 since last hour
+                    of clones are actively queried
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+                  <CardTitle className='text-sm font-medium'>
+                    Average Interactions
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className='text-2xl font-bold'>6</div>
+                  <p className='text-muted-foreground text-xs'>
+                    tool calls per clone
                   </p>
                 </CardContent>
               </Card>
@@ -188,6 +140,14 @@ export default function Dashboard() {
                   <ActiveDataSources />
                 </CardContent>
               </Card>
+              <Card className='col-span-1'>
+                <CardHeader>
+                  <CardTitle>Most Requested Teams</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <MostRequestedTeams />
+                </CardContent>
+              </Card>
             </div>
           </TabsContent>
         </Tabs>
@@ -197,28 +157,29 @@ export default function Dashboard() {
 }
 
 const topNav = [
-  {
-    title: 'Overview',
-    href: 'dashboard/overview',
-    isActive: true,
-    disabled: false,
-  },
-  {
-    title: 'Customers',
-    href: 'dashboard/customers',
-    isActive: false,
-    disabled: true,
-  },
-  {
-    title: 'Products',
-    href: 'dashboard/products',
-    isActive: false,
-    disabled: true,
-  },
-  {
-    title: 'Settings',
-    href: 'dashboard/settings',
-    isActive: false,
-    disabled: true,
-  },
+  {},
+  // {
+  //   title: 'Overview',
+  //   href: 'dashboard/overview',
+  //   isActive: true,
+  //   disabled: false,
+  // },
+  // {
+  //   title: 'Customers',
+  //   href: 'dashboard/customers',
+  //   isActive: false,
+  //   disabled: true,
+  // },
+  // {
+  //   title: 'Products',
+  //   href: 'dashboard/products',
+  //   isActive: false,
+  //   disabled: true,
+  // },
+  // {
+  //   title: 'Settings',
+  //   href: 'dashboard/settings',
+  //   isActive: false,
+  //   disabled: true,
+  // },
 ]

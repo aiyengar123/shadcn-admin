@@ -40,13 +40,15 @@ export const columns: ColumnDef<User>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: 'username',
+    id: 'fullName',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Username' />
+      <DataTableColumnHeader column={column} title='Clone Name' />
     ),
-    cell: ({ row }) => (
-      <LongText className='max-w-36'>{row.getValue('username')}</LongText>
-    ),
+    cell: ({ row }) => {
+      const { firstName, lastName } = row.original
+      const fullName = `${firstName} ${lastName}`
+      return <LongText className='max-w-40 font-medium'>{fullName}</LongText>
+    },
     meta: {
       className: cn(
         'drop-shadow-[0_1px_2px_rgb(0_0_0_/_0.1)] dark:drop-shadow-[0_1px_2px_rgb(255_255_255_/_0.1)] lg:drop-shadow-none',
@@ -57,16 +59,46 @@ export const columns: ColumnDef<User>[] = [
     enableHiding: false,
   },
   {
-    id: 'fullName',
+    accessorKey: 'username',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Name' />
+      <DataTableColumnHeader column={column} title='Username' />
+    ),
+    cell: ({ row }) => (
+      <LongText className='max-w-36'>{row.getValue('username')}</LongText>
+    ),
+    meta: { className: 'w-36' },
+  },
+  {
+    accessorKey: 'team',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title='Team' />
     ),
     cell: ({ row }) => {
-      const { firstName, lastName } = row.original
-      const fullName = `${firstName} ${lastName}`
-      return <LongText className='max-w-36'>{fullName}</LongText>
+      const { team } = row.original
+      return (
+        <Badge variant='secondary' className='text-xs'>
+          {team}
+        </Badge>
+      )
     },
-    meta: { className: 'w-36' },
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id))
+    },
+    enableSorting: false,
+  },
+  {
+    accessorKey: 'position',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title='Position' />
+    ),
+    cell: ({ row }) => {
+      const { position } = row.original
+      return <span className='text-sm font-medium'>{position}</span>
+    },
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id))
+    },
+    enableSorting: false,
   },
   {
     accessorKey: 'email',
@@ -74,16 +106,10 @@ export const columns: ColumnDef<User>[] = [
       <DataTableColumnHeader column={column} title='Email' />
     ),
     cell: ({ row }) => (
-      <div className='w-fit text-nowrap'>{row.getValue('email')}</div>
+      <div className='text-muted-foreground w-fit text-sm text-nowrap'>
+        {row.getValue('email')}
+      </div>
     ),
-  },
-  {
-    accessorKey: 'phoneNumber',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Phone Number' />
-    ),
-    cell: ({ row }) => <div>{row.getValue('phoneNumber')}</div>,
-    enableSorting: false,
   },
   {
     accessorKey: 'status',
@@ -106,34 +132,6 @@ export const columns: ColumnDef<User>[] = [
     },
     enableHiding: false,
     enableSorting: false,
-  },
-  {
-    accessorKey: 'role',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Role' />
-    ),
-    cell: ({ row }) => {
-      const { role } = row.original
-      const userType = userTypes.find(({ value }) => value === role)
-
-      if (!userType) {
-        return null
-      }
-
-      return (
-        <div className='flex items-center gap-x-2'>
-          {userType.icon && (
-            <userType.icon size={16} className='text-muted-foreground' />
-          )}
-          <span className='text-sm capitalize'>{row.getValue('role')}</span>
-        </div>
-      )
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id))
-    },
-    enableSorting: false,
-    enableHiding: false,
   },
   {
     id: 'actions',

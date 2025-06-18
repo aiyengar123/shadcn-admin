@@ -18,12 +18,6 @@ import {
 
 export const apps = [
   {
-    name: 'Telegram',
-    logo: <IconBrandTelegram />,
-    connected: false,
-    desc: 'Connect with Telegram for real-time communication.',
-  },
-  {
     name: 'Notion',
     logo: <IconBrandNotion />,
     connected: true,
@@ -44,7 +38,7 @@ export const apps = [
   {
     name: 'Slack',
     logo: <IconBrandSlack />,
-    connected: false,
+    connected: true,
     desc: 'Integrate Slack for efficient team communication',
   },
   {
@@ -66,45 +60,9 @@ export const apps = [
     desc: 'Access and manage Gmail messages effortlessly.',
   },
   {
-    name: 'Medium',
-    logo: <IconBrandMedium />,
-    connected: false,
-    desc: 'Explore and share Medium stories on your dashboard.',
-  },
-  {
-    name: 'Skype',
-    logo: <IconBrandSkype />,
-    connected: false,
-    desc: 'Connect with Skype contacts seamlessly.',
-  },
-  {
-    name: 'Docker',
-    logo: <IconBrandDocker />,
-    connected: false,
-    desc: 'Effortlessly manage Docker containers on your dashboard.',
-  },
-  {
     name: 'GitHub',
     logo: <IconBrandGithub />,
-    connected: false,
+    connected: true,
     desc: 'Streamline code management with GitHub integration.',
-  },
-  {
-    name: 'GitLab',
-    logo: <IconBrandGitlab />,
-    connected: false,
-    desc: 'Efficiently manage code projects with GitLab integration.',
-  },
-  {
-    name: 'Discord',
-    logo: <IconBrandDiscord />,
-    connected: false,
-    desc: 'Connect with Discord for seamless team communication.',
-  },
-  {
-    name: 'WhatsApp',
-    logo: <IconBrandWhatsapp />,
-    connected: false,
-    desc: 'Easily integrate WhatsApp for direct messaging.',
   },
 ]
